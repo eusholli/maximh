@@ -1,0 +1,29 @@
+services:
+  web:
+    build: .
+    container_name: maximh
+    secrets:
+      - emailjs_service_id
+      - emailjs_template_id
+      - emailjs_public_key
+    restart: unless-stopped
+    networks:
+      - webproxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.maximh.rule=Host(`maximh.us`)"
+      - "traefik.http.routers.maximh.entrypoints=websecure"
+      - "traefik.http.routers.maximh.tls.certresolver=letsencrypt"
+      - "traefik.http.services.maximh.loadbalancer.server.port=3000"
+
+networks:
+  webproxy:
+    external: true
+
+secrets:
+  emailjs_service_id:
+    file: /home/eusholli/.secrets/maximh/emailjs_service_id.txt
+  emailjs_template_id:
+    file: /home/eusholli/.secrets/maximh/emailjs_template_id.txt
+  emailjs_public_key:
+    file: /home/eusholli/.secrets/maximh/emailjs_public_key.txt

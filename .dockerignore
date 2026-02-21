@@ -1,0 +1,11 @@
+.git
+.gitignore
+.next
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+Dockerfile
+docker-compose*.yml
+.env*
+LinkedIn-profile.pdf
