@@ -13,7 +13,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.maximh.rule=Host(`maximh.us`)"
       - "traefik.http.routers.maximh.entrypoints=websecure"
-      - "traefik.http.routers.maximh.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.maximh.tls.certresolver=myresolver"
       - "traefik.http.services.maximh.loadbalancer.server.port=3000"
 
 networks:
