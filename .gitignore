@@ -31,5 +31,4 @@ yarn-error.log*
 .idea/
 
 # lock files
-package-lock.json
 yarn.lock
